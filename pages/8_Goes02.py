@@ -21,7 +21,7 @@ data = datetime.today().strftime("%Y%m%d00")
 
 BASE_DIR = Path(__file__).resolve().parent.parent  # raiz do projeto
 
-goes02_dir = BASE_DIR / "plots" / "Goes02"
+Goes02_dir = BASE_DIR / "plots" / "Goes02"
 
 def hora_previsao(p):
     nums = re.findall(r"(\d+)h", p.name)
