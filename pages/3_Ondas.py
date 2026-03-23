@@ -27,14 +27,14 @@ def extrair_timestep(nome_arquivo: str) -> int:
         raise ValueError(f"Timestep não encontrado em: {nome_arquivo}")
     return int(match.group(1))
 
-BASE_DIR = Path('/home/CIEX/COAWST_PREVISAO_OPR')
+BASE_DIR = Path(__file__).resolve().parent  # raiz do projeto
 
 data = st.session_state.get("data_selecionada")
 
 if data:
-    ondas_dir = BASE_DIR / "hist" / data / "Ondas" # AJUSTAR QUANDO IMPLEMENTADO
+    vento_dir = BASE_DIR / "hist" / data / "Ondas"
 else:
-    ondas_dir = BASE_DIR/ "Ondas"
+    vento_dir = BASE_DIR / "Ondas"
 
 pngs = sorted(
     ondas_dir.glob("Hs_Direcao_*.png"),

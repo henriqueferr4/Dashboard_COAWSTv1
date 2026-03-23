@@ -15,17 +15,14 @@ st.markdown("<h1 class='titulo'>Vento - WRF</h1>",
     unsafe_allow_html=True)
 
 
-data = st.session_state.get("data_selecionada")
-
-BASE_DIR = Path('/home/CIEX/COAWST_PREVISAO_OPR')
+BASE_DIR = Path(__file__).resolve().parent  # raiz do projeto
 
 data = st.session_state.get("data_selecionada")
 
-# Verifica se alguma data foi selecionada no histórico
-if data: # histórico de previsões
-    vento_dir = BASE_DIR / "hist" / data / "Vento_850hPa" # AJUSTAR QUANDO IMPLEMENTADO
-else: # previsão dia
-    vento_dir = BASE_DIR/"Vento_850hPa"
+if data:
+    vento_dir = BASE_DIR / "hist" / data / "Vento_850hPa"
+else:
+    vento_dir = BASE_DIR / "Vento_850hPa"
 
 def hora_previsao(p):
     nums = re.findall(r"(\d+)h", p.name)

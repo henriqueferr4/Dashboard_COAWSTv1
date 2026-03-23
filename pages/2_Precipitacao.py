@@ -14,14 +14,14 @@ load_css("assets/style.css")
 st.markdown("<h1 class='titulo'>Precipitação e Pressão Atmosférica - WRF</h1>",
     unsafe_allow_html=True)
 
-BASE_DIR = Path('/home/CIEX/COAWST_PREVISAO_OPR')
+BASE_DIR = Path(__file__).resolve().parent  # raiz do projeto
 
 data = st.session_state.get("data_selecionada")
 
 if data:
-    chuva_dir = BASE_DIR / "hist" / data / "CHUVA" # AJUSTAR QUANDO IMPLEMENTADO
+    vento_dir = BASE_DIR / "hist" / data / "CHUVA"
 else:
-    chuva_dir = BASE_DIR/"CHUVA"
+    vento_dir = BASE_DIR / "CHUVA"
 
 def hora_previsao(p):
     nums = re.findall(r"(\d+)h", p.name)

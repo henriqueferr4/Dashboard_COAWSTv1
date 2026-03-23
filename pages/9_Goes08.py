@@ -18,7 +18,9 @@ st.markdown("<h1 class='titulo'>Imagens de satélite - GOES - Canal 08</h1>",
 # Data atual
 data = datetime.today().strftime("%Y%m%d00")
 
-Goes08_dir = f'/home/william/goes_utils/Figuras_GOES/{data}'
+BASE_DIR = Path(__file__).resolve().parents[1]
+
+goes02_dir = BASE_DIR / "plots" / "Goes08"
 
 def hora_previsao(p):
     nums = re.findall(r"(\d+)h", p.name)
