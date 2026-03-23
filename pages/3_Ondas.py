@@ -27,7 +27,7 @@ def extrair_timestep(nome_arquivo: str) -> int:
         raise ValueError(f"Timestep não encontrado em: {nome_arquivo}")
     return int(match.group(1))
 
-BASE_DIR = Path(__file__).resolve().parent  # raiz do projeto
+BASE_DIR = Path(__file__).resolve().parent.parent  # raiz do projeto
 
 data = st.session_state.get("data_selecionada")
 

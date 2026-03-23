@@ -19,7 +19,7 @@ st.markdown("<h1 class='titulo'>Imagens de satélite - GOES - Canal 02</h1>",
 # Data atual
 data = datetime.today().strftime("%Y%m%d00")
 
-BASE_DIR = Path(__file__).resolve().parents[1]
+BASE_DIR = Path(__file__).resolve().parent.parent  # raiz do projeto
 
 goes02_dir = BASE_DIR / "plots" / "Goes02"
 
