@@ -15,7 +15,7 @@ st.markdown("<h1 class='titulo'>Vento - WRF</h1>",
     unsafe_allow_html=True)
 
 
-BASE_DIR = Path(__file__).resolve().parent  # raiz do projeto
+BASE_DIR = Path(__file__).resolve().parent.parent  # raiz do projeto
 
 data = st.session_state.get("data_selecionada")
 
