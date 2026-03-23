@@ -21,7 +21,7 @@ data = st.session_state.get("data_selecionada")
 if data:
     vento_dir = BASE_DIR / "hist" / data / "CHUVA"
 else:
-    vento_dir = BASE_DIR / "CHUVA"
+    vento_dir = BASE_DIR / "plots" / "CHUVA"
 
 def hora_previsao(p):
     nums = re.findall(r"(\d+)h", p.name)

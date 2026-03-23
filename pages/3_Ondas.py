@@ -34,7 +34,7 @@ data = st.session_state.get("data_selecionada")
 if data:
     vento_dir = BASE_DIR / "hist" / data / "Ondas"
 else:
-    vento_dir = BASE_DIR / "Ondas"
+    vento_dir = BASE_DIR / "plots" / "Ondas"
 
 pngs = sorted(
     ondas_dir.glob("Hs_Direcao_*.png"),
