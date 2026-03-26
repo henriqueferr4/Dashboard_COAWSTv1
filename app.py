@@ -78,7 +78,7 @@ st.write("")
 st.write("")
 st.write("")
 
-col1, col2, col3, col4 = st.columns(4)
+col1, col2, col3 = st.columns(3)
 
 with col1:
     st.metric(
@@ -107,16 +107,16 @@ with col3:
     if st.button("Toque para visualizar", key="ondas"):
         st.switch_page("pages/3_Ondas.py")
 
-with col4:
-    st.metric(
-        label="🗂 Histórico",
-        value="Previsões Anteriores",
-        delta="-9 Dias",
-        delta_color="off"
+#with col4:
+#    st.metric(
+#        label="🗂 Histórico",
+#        value="Previsões Anteriores",
+#        delta="-9 Dias",
+#        delta_color="off"
 
-    )
-    if st.button("Toque para visualizar", key="hist"):
-        st.switch_page("pages/4_Historico.py")
+#    )
+#    if st.button("Toque para visualizar", key="hist"):
+#        st.switch_page("pages/4_Historico.py")
 
 st.divider()
 
