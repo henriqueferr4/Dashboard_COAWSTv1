@@ -20,7 +20,7 @@ data = datetime.today().strftime("%Y%m%d00")
 
 BASE_DIR = Path(__file__).resolve().parent.parent  # raiz do projeto
 
-Goes18_dir = BASE_DIR / "plots" / "Goes18"
+Goes13_dir = BASE_DIR / "plots" / "Goes13"
 
 def hora_previsao(p):
     nums = re.findall(r"(\d+)h", p.name)
@@ -29,7 +29,7 @@ def hora_previsao(p):
     return -1  # coloca no início da ordenação
 
 pngs = sorted(
-    Goes18_dir.glob("*.png"),
+    Goes13_dir.glob("*.png"),
     key=hora_previsao
 )
 
