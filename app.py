@@ -9,9 +9,6 @@ def load_css(path):
 
 load_css("assets/style.css")
 
-st.set_page_config(
-    initial_sidebar_state="collapsed"
-)
 
 st.set_page_config(
     page_title="COAWST CIEX",
@@ -41,12 +38,6 @@ with col2:
     Este painel apresenta visualizações e análises geradas a partir das simulações do modelo 
     <b>COAWST (Coupled Ocean–Atmosphere–Wave–Sediment Transport)</b>, 
     uma plataforma numérica acoplada utilizada para estudar a interação entre oceano e atmosfera.
-    </p>
-
-    <br>
-
-    <p>
-     O sistema integra diferentes componentes físicos, permitindo uma representação mais realista dos processos costeiros e oceânicos.
     </p>
 
     <br>

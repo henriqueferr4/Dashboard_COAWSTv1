@@ -55,3 +55,9 @@
     justify-content: center;
     align-items: center;
 }
+
+
+/* Remover barra lateral */
+[data-testid="stSidebar"] {
+    display: none;
+}
