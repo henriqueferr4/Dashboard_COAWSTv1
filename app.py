@@ -10,6 +10,10 @@ def load_css(path):
 load_css("assets/style.css")
 
 st.set_page_config(
+    initial_sidebar_state="collapsed"
+)
+
+st.set_page_config(
     page_title="COAWST CIEX",
     page_icon="assets/logo_icon.png",
     layout="wide"
@@ -29,7 +33,7 @@ with col2:
     st.markdown("""
     <div style="text-align: center; padding-left: 5%; padding-right: 15%;">
 
-    <h1> Dashboard de Monitoramento COAWST </h1>
+    <h1> Dashboard de Previsões COAWST </h1>
 
     <br>
 
@@ -50,12 +54,6 @@ with col2:
     <p>
      As previsões disponibilizadas neste dashboard possuem horizonte de <b>72 horas (3 dias)</b>, 
     contadas a partir da data atual de execução do modelo e atualizadas diariamente.
-    </p>
-
-    <br>
-
-    <p>
-    Além da previsão recorrente, o sistema mantém um <b>histórico das simulações geradas nos 9 dias anteriores</b>.
     </p>
 
     <br>
