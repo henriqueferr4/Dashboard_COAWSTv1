@@ -58,6 +58,6 @@
 
 
 /* Remover barra lateral */
-[data-testid="stSidebar"] {
-    display: none;
-}
+/*[data-testid="stSidebar"] {*/
+/*    display: none;*/
+/*}*/
