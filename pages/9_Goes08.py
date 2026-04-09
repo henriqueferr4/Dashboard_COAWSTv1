@@ -22,16 +22,15 @@ BASE_DIR = Path(__file__).resolve().parent.parent  # raiz do projeto
 
 Goes08_dir = BASE_DIR / "plots" / "Goes08"
 
-def hora_previsao(p):
-    nums = re.findall(r"(\d+)h", p.name)
-    if nums:
-        return int(nums[-1])
-    return -1  # coloca no início da ordenação
+def extrair_datetime(p):
+    match = re.search(r"_(\d{8})_(\d{4})UTC", p.name)
+    if match:
+        data_str = match.group(1) + match.group(2)
+        return datetime.strptime(data_str, "%Y%m%d%H%M")
+    return datetime.min
 
-pngs = sorted(
-    Goes08_dir.glob("*.png"),
-    key=hora_previsao
-)
+# Ordenação 
+pngs = sorted(Goes02_dir.glob("*.png"), key=extrair_datetime)
 
 col_esq, col_centro, col_dir = st.columns([1, 2, 1])
 
