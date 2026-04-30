@@ -30,7 +30,7 @@ def extrair_datetime(p):
     return datetime.min
 
 # Ordenação 
-pngs = sorted(Goes02_dir.glob("*.png"), key=extrair_datetime)
+pngs = sorted(Goes08_dir.glob("*.png"), key=extrair_datetime)
 
 col_esq, col_centro, col_dir = st.columns([1, 2, 1])
 
