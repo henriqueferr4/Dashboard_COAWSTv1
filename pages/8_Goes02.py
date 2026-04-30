@@ -44,8 +44,8 @@ key=extrair_datetime
 # Proteção: sem imagens
 # -------------------------------
 if not pngs:
-st.error(f"Nenhuma imagem PNG encontrada em:\n{Goes02_dir}")
-st.stop()
+    st.error(f"Nenhuma imagem PNG encontrada em:\n{Goes02_dir}")
+    st.stop()
 
 col_esq, col_centro, col_dir = st.columns([1, 2, 1])
 
