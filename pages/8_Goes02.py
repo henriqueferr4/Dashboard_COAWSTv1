@@ -18,35 +18,6 @@ st.markdown("<h1 class='titulo'>Imagens de satélite - GOES - Canal 02</h1>",
 
 # Data atual
 data = datetime.today().strftime("%Y%m%d00")
-'''
-BASE_DIR = Path(__file__).resolve().parent.parent  # raiz do projeto
-
-Goes02_dir = BASE_DIR / "plots" / "Goes02"
-
-def extrair_datetime(p):
-    match = re.search(r"_(\d{8})_(\d{4})UTC", p.name)
-    if match:
-        data_str = match.group(1) + match.group(2)
-        return datetime.strptime(data_str, "%Y%m%d%H%M")
-    return datetime.min
-
-# Ordenação 
-# -------------------------------
-# Buscar e ordenar imagens
-# -------------------------------
-pngs = sorted(
-Goes02_dir.glob("*.png"),
-key=extrair_datetime
-)
-
-
-# -------------------------------
-# Proteção: sem imagens
-# -------------------------------
-if not pngs:
-    st.error(f"Nenhuma imagem PNG encontrada em:\n{Goes02_dir}")
-    st.stop()
-'''
 
 BASE_DIR = Path.cwd()
 Goes02_dir = BASE_DIR / "plots" / "Goes02"

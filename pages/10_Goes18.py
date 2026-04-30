@@ -18,8 +18,7 @@ st.markdown("<h1 class='titulo'>Imagens de satélite - GOES - Canal 18</h1>",
 # Data atual
 data = datetime.today().strftime("%Y%m%d00")
 
-BASE_DIR = Path(__file__).resolve().parent.parent  # raiz do projeto
-
+BASE_DIR = Path.cwd()
 Goes13_dir = BASE_DIR / "plots" / "Goes13"
 
 def extrair_datetime(p):
@@ -29,8 +28,22 @@ def extrair_datetime(p):
         return datetime.strptime(data_str, "%Y%m%d%H%M")
     return datetime.min
 
-# Ordenação 
-pngs = sorted(Goes13_dir.glob("*.png"), key=extrair_datetime)
+# Busca os arquivos
+pngs = sorted(list(Goes13_dir.glob("*.png")), key=extrair_datetime)
+
+# --- VERIFICAÇÃO DE SEGURANÇA ---
+if not pngs:
+    st.error(f"Imagens não encontradas no GitHub!")
+    st.info(f"Verifique se a pasta 'plots/Goes13' existe no seu repositório. Caminho tentado: {Goes13_dir}")
+    st.stop() # Interrompe o script aqui para evitar o erro no st.image
+# --------------------------------
+
+# Se chegou aqui, existem imagens. Segue o código normal...
+if "idx" not in st.session_state:
+    st.session_state.idx = 0
+
+# Garante que o índice não seja maior que a lista (importante para o slider)
+st.session_state.idx = min(st.session_state.idx, len(pngs) - 1)
 
 col_esq, col_centro, col_dir = st.columns([1, 2, 1])
 
