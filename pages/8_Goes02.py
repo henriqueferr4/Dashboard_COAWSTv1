@@ -18,7 +18,7 @@ st.markdown("<h1 class='titulo'>Imagens de satélite - GOES - Canal 02</h1>",
 
 # Data atual
 data = datetime.today().strftime("%Y%m%d00")
-
+'''
 BASE_DIR = Path(__file__).resolve().parent.parent  # raiz do projeto
 
 Goes02_dir = BASE_DIR / "plots" / "Goes02"
@@ -83,7 +83,47 @@ with col_centro:
 
 
     st.image(pngs[st.session_state.idx])
+'''
+# ... (seu código de import e load_css)
 
+BASE_DIR = Path.cwd()
+Goes02_dir = BASE_DIR / "plots" / "Goes02"
+
+def extrair_datetime(p):
+    match = re.search(r"_(\d{8})_(\d{4})UTC", p.name)
+    if match:
+        data_str = match.group(1) + match.group(2)
+        return datetime.strptime(data_str, "%Y%m%d%H%M")
+    return datetime.min
+
+# Busca os arquivos
+pngs = sorted(list(Goes02_dir.glob("*.png")), key=extrair_datetime)
+
+# --- VERIFICAÇÃO DE SEGURANÇA ---
+if not pngs:
+    st.error(f"Imagens não encontradas no GitHub!")
+    st.info(f"Verifique se a pasta 'plots/Goes02' existe no seu repositório. Caminho tentado: {Goes02_dir}")
+    st.stop() # Interrompe o script aqui para evitar o erro no st.image
+# --------------------------------
+
+# Se chegou aqui, existem imagens. Segue o código normal...
+if "idx" not in st.session_state:
+    st.session_state.idx = 0
+
+# Garante que o índice não seja maior que a lista (importante para o slider)
+st.session_state.idx = min(st.session_state.idx, len(pngs) - 1)
+
+# ... (restante do seu código de colunas e botões)
+
+with col2:
+    st.session_state.idx = st.slider(
+        "Passo de tempo:",
+        0,
+        len(pngs) - 1,
+        st.session_state.idx
+    )
+
+st.image(pngs[st.session_state.idx])
 
     if st.session_state.playing:
         time.sleep(0.8)  
