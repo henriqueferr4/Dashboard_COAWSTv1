@@ -35,6 +35,8 @@ pngs = sorted(Goes02_dir.glob("*.png"), key=extrair_datetime)
 
 col_esq, col_centro, col_dir = st.columns([1, 2, 1])
 
+
+
 with col_centro:
 
     st.divider()
