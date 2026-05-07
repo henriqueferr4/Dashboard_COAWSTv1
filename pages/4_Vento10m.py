@@ -11,7 +11,7 @@ def load_css(path):
 
 load_css("assets/style.css")
 
-st.markdown("<h1 class='titulo'>Vento em 850 hPa- WRF</h1>",
+st.markdown("<h1 class='titulo'>Vento a 10 m - WRF</h1>",
     unsafe_allow_html=True)
 
 
@@ -22,7 +22,7 @@ data = st.session_state.get("data_selecionada")
 if data:
     vento_dir = BASE_DIR / "hist" / data / "Vento_850hPa"
 else:
-    vento_dir = BASE_DIR / "plots" / "Vento_850hPa"
+    vento_dir = BASE_DIR / "plots" / "Vento_10m"
 
 def hora_previsao(p):
     nums = re.findall(r"(\d+)h", p.name)

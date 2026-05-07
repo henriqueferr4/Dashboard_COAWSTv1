@@ -67,18 +67,28 @@ st.write("")
 st.write("")
 st.write("")
 
-col1, col2, col3 = st.columns(3)
+col1, col2, col3, col4 = st.columns(4)
 
 with col1:
     st.metric(
-        label="🌬 Velocidade e direção (Kt)",
-        value="Vento",
+        label="🌬 Velocidade e direção (Km/h)",
+        value="Vento a 10 m",
+        delta="Atualização diária"
+    )
+    if st.button("Toque para visualizar", key="vento10m"):
+        st.switch_page("pages/4_Vento10m.py")
+
+with col2:
+    st.metric(
+        label="🌬 Velocidade e direção (Km/h)",
+        value="Vento 850 hPa",
         delta="Atualização diária"
     )
     if st.button("Toque para visualizar", key="vento"):
         st.switch_page("pages/1_Vento.py")
 
-with col2:
+
+with col3:
     st.metric(
         label="🌧 Valor acumulado (mm)",
         value="Precipitação",
@@ -87,7 +97,7 @@ with col2:
     if st.button("Toque para visualizar", key="prec"):
         st.switch_page("pages/2_Precipitacao.py")
 
-with col3:
+with col4:
     st.metric(
         label="🌊 Altura (m) e direção",
         value="Ondas",
