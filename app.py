@@ -81,7 +81,7 @@ with col1:
 with col2:
     st.metric(
         label="🌬 Velocidade e direção (Km/h)",
-        value="Vento 850 hPa",
+        value="Vento em 850 hPa",
         delta="Atualização diária"
     )
     if st.button("Toque para visualizar", key="vento"):
