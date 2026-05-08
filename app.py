@@ -67,7 +67,7 @@ st.write("")
 st.write("")
 st.write("")
 
-col1, col2, col3, col4 = st.columns(4)
+col1, col2, col3, col4, col5 = st.columns(5)
 
 with col1:
     st.metric(
@@ -96,8 +96,17 @@ with col3:
     )
     if st.button("Toque para visualizar", key="prec"):
         st.switch_page("pages/2_Precipitacao.py")
-
+        
 with col4:
+    st.metric(
+        label="🌡️°C",
+        value="Temperatura",
+        delta="Atualização diária"
+    )
+    if st.button("Toque para visualizar", key="temperatura"):
+        st.switch_page("pages/5_Temperatura.py")
+
+with col5:
     st.metric(
         label="🌊 Altura (m) e direção",
         value="Ondas",
