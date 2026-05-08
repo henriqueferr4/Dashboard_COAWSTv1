@@ -11,7 +11,7 @@ def load_css(path):
 
 load_css("assets/style.css")
 
-st.markdown("<h1 class='titulo'>Temperatura a 2 m (°C)- WRF</h1>",
+st.markdown("<h1 class='titulo'>Temperatura em 2 m (°C)- WRF</h1>",
     unsafe_allow_html=True)
 
 
